@@ -63,6 +63,9 @@ class ShoppingScreen extends StatelessWidget {
                             onPressed: () {
                               productController.removeShoppingProduct(
                                   index: index);
+                              if (Get.isSnackbarOpen) {
+                                Get.closeAllSnackbars();
+                              }
                               Get.snackbar(
                                 "O'chirildi",
                                 "${product.title} savatdan olib tashlandi",
@@ -82,6 +85,9 @@ class ShoppingScreen extends StatelessWidget {
                               productController.addShoppingProduct(
                                   index: productController.products
                                       .indexOf(product));
+                              if (Get.isSnackbarOpen) {
+                                Get.closeAllSnackbars();
+                              }
                               Get.snackbar(
                                 "Qo'shildi",
                                 "${product.title} savatga qo'shildi",

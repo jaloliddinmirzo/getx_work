@@ -47,6 +47,9 @@ class HomeView extends StatelessWidget {
             return GestureDetector(
               onLongPress: () {
                 productController.removeProduct(product: products);
+                if (Get.isSnackbarOpen) {
+                  Get.closeAllSnackbars();
+                }
                 Get.snackbar(
                   "O'chirildi",
                   "${products.title} Frutsdan olib tashlandi",
@@ -75,6 +78,9 @@ class HomeView extends StatelessWidget {
                         Icon(Icons.add_shopping_cart, color: Colors.deepPurple),
                     onPressed: () {
                       productController.addShoppingProduct(index: index);
+                      if (Get.isSnackbarOpen) {
+                        Get.closeAllSnackbars();
+                      }
                       Get.snackbar(
                         "Savatga qo'shildi",
                         "${products.title} savatga qo'shildi",

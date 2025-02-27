@@ -63,7 +63,7 @@ class ProductController extends GetxController {
     }
   }
 
- Future<void> removeShoppingProduct({required int index}) async {
+  Future<void> removeShoppingProduct({required int index}) async {
     if (shoppingBox != null) {
       await shoppingBox!.deleteAt(index);
       _loadCart();
@@ -76,7 +76,9 @@ class ProductController extends GetxController {
       var index = products.indexOf(product);
       if (index != -1) {
         await box!.deleteAt(index);
+        removeShoppingProduct(index: index);
         _loadProducts();
+        _loadCart();
         update();
       }
     }
