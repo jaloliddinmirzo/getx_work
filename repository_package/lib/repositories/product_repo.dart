@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
-import 'package:getx_work/data/product_model.dart';
 import 'package:hive_flutter/adapters.dart';
+import 'package:data_package/data_package.dart';
 
 class ProductController extends GetxController {
   var products = <ProductModel>[].obs; // Observable ro'yxat

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:getx_work/controllers/product_controller.dart';
-import 'package:getx_work/data/product_model.dart';
+import 'package:repository_package/repository_package.dart';
+import 'package:data_package/data_package.dart';
+
 
 class HomeView extends StatelessWidget {
   final ProductController productController = Get.put(ProductController());

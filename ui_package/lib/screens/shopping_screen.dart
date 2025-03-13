@@ -2,7 +2,7 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:getx_work/controllers/product_controller.dart';
+import 'package:repository_package/repositories/product_repo.dart';
 
 class ShoppingScreen extends StatelessWidget {
   final ProductController productController = Get.put(ProductController());
