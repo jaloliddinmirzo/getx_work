@@ -71,12 +71,32 @@ class ProductController extends GetxController {
     }
   }
 
+  //  Update product
+  Future<void> updateProduct({
+    required ProductModel product,
+    required String newTitle,
+    required num newPrice,
+  }) async {
+    if (box != null) {
+      var index = products.indexOf(product);
+      if (index != -1) {
+        var updatedProduct = ProductModel(
+          title: newTitle,
+          price: newPrice,
+        );
+        await box!.put(index, updatedProduct);
+        _loadProducts();
+        _loadCart();
+        update();
+      }
+    }
+  }
+
   Future<void> removeProduct({required ProductModel product}) async {
-    if (shoppingBox != null) {
+    if (box != null) {
       var index = products.indexOf(product);
       if (index != -1) {
         await box!.deleteAt(index);
-        removeShoppingProduct(index: index);
         _loadProducts();
         _loadCart();
         update();
